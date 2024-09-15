@@ -39,7 +39,7 @@ async def channel_post(client: Client, message: Message):
         except Exception:
             pass
 
-@Bot.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID))
+@Bot.on_message(filters.channel & filters.incoming & filters.chat(CHANNEL_ID) & ~(filters.text))
 async def new_post(client: Client, message: Message):
 
     if DISABLE_CHANNEL_BUTTON:
